@@ -65,7 +65,7 @@ public:
 	QString currentDir() const;
 	QString currentFile() const;
 	void updateConnect(const ImageCanvas * ic);
-    void increaseObject(int id_object);
+    // void increaseObject();
     void allDisconnnect(const ImageCanvas * ic);
     void runWatershed(ImageCanvas * ic);
     void setStarAtNameOfTab(bool star);
@@ -76,7 +76,7 @@ public slots:
 	void changeColor(QListWidgetItem*);
 	void saveConfigFile();
 	void loadConfigFile();
-    void increaseObject(QListWidgetItem*);
+    void increaseObject();
 	void runWatershed();
     void swapView();
 	void on_tree_widget_img_currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *);

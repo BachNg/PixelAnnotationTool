@@ -64,7 +64,7 @@ MainWindow::MainWindow(QWidget *parent, Qt::WindowFlags flags)
 	tabWidget->clear();
 
 	connect(button_watershed      , SIGNAL(released())                        , this, SLOT(runWatershed()  ));
-    connect(button_newobj         , SIGNAL(clicked(QListWidgetItem*))         , this, SLOT(increaseObject(QListWidgetItem*)));
+    connect(button_newobj         , SIGNAL(clicked())                         , this, SLOT(increaseObject()));
     connect(swap_action           , SIGNAL(triggered())                       , this, SLOT(swapView()      ));
 	connect(actionOpen_config_file, SIGNAL(triggered())                       , this, SLOT(loadConfigFile()));
 	connect(actionSave_config_file, SIGNAL(triggered())                       , this, SLOT(saveConfigFile()));
@@ -224,18 +224,23 @@ void MainWindow::runWatershed() {
         runWatershed(ic);
 }
 
-void MainWindow::increaseObject(QListWidgetItem* current) {
-    std::cout << "Run into 1";
+void MainWindow::increaseObject() {
     LabelWidget * label;
-    label = static_cast<LabelWidget*>(list_label->itemWidget(current));
+    label = static_cast<LabelWidget*>(list_label->itemWidget(list_label->currentItem()));
+    // static_cast<LabelWidget*> current = list_label->currentItem();
+    
     QString str;
 	QString key = label->getName();
 	QTextStream sstr(&str);
-	sstr <<"label=[" ;
+    labels[key].count = labels[key].count + 1;
+    sstr <<"label=["<< key <<"] id=[" << labels[key].id << "] count=[" <<labels[key].count << "] categorie=[" << labels[key].categorie << "] color=[" << labels[key].color.name() << "]" ;
     statusBar()->showMessage(str);
+    // std::cout << key.toStdString() << std::endl;
+
 }
 
-// void MainWindow::increaseObject(int id_object) {
+// void MainWindow::increaseObject() {
+//     increaseObject();
 //     std::cout << "Run into 2" << std::endl;
 //     std::cout << id_object << std::endl;
 // }
