@@ -1,0 +1,38 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+script_to_build/build/
+scripts_to_build/build/
+scripts_to_build/squashfs-root/
+scripts_to_build/qt-opensource-linux-x64-5.9.1.run
+scripts_to_build/linuxdeployqt-continuous-x86_64.AppImage
+x64/
